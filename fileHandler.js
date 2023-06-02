@@ -10,7 +10,8 @@ const readMovieData = () => {
         reject(err);
       } else {
         
-        resolve(JSON.parse(data));
+        resolve(JSON.parse(data?data:{}));
+        console.log("This is from Read Movie Data");
         console.log(JSON.parse(data));
       }
     });
@@ -29,6 +30,7 @@ const writeMovieData = (data) => {
     });
   });
 };
+// Append movie data to the JSON file
 const appendMovieData = (data) => {
   return new Promise((resolve, reject) => {
     fs.appendFile('movies.json', JSON.stringify(data), 'utf8', (err) => {

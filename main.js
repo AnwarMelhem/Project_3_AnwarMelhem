@@ -63,7 +63,7 @@ const handleUserInput = async () => {
     }
     case '3': {
       console.log('=== Update Movie Details ===');
-      const movieIndex = parseInt(await promptUser('Enter the movie index to update: '), 10) - 1;
+      const movieIndex = parseInt(await promptUser('Enter the movie index to update: '), 10);
       const title = await promptUser('New Title: ');
       const director = await promptUser('New Director: ');
       const releaseYear = await promptUser('New Release Year: ');
@@ -93,8 +93,9 @@ const handleUserInput = async () => {
       await filterMovies(filterType, filterValue);
       break;
     }
+    
     case '0': {
-      console.log('Exiting...');
+      console.log('Exiting');
       rl.close();
       return;
     }
